@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ControleFinanceiro.Models.Usuario>
+@{
+    ViewData["Title"] = "Usuários";
+}
+<h1>Usuários Cadastrados</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Criado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Id</td>
+                <td>@usuario.Nome</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.SenhaHash</td>
+            </tr>
+        }
+    </tbody>
+</table>

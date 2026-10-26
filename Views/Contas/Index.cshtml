@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ControleFinanceiro.Models.Conta>
+<h1>Contas</h1>
+<p>
+    <a asp-action="Create">Criar Nova Conta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Saldo</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var conta in Model)
+        {
+            <tr>
+                <td>@conta.Nome</td>
+                <td>@conta.Saldo.ToString("C")</td>
+                <td>@conta.Usuario</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@conta.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@conta.Id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@conta.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
